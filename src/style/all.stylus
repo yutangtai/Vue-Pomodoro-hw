@@ -1,0 +1,570 @@
+body,
+html
+  width 100vw
+  height 100vh  
+  background #EAEAEA
+
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+  font-family 'Lato', sans-serif
+  list-style none
+
+  --leftMaxWidth calc(100% - 82px)
+  input,
+  button
+    border none
+    outline none
+  hr
+    border none
+    border-top 2px solid #414141
+    margin 0
+
+#app
+  width  100%
+  height 100%
+
+input[type=checkbox]
+  display none
+input:checked~ .sidebar .sidebar-content
+  margin-right 0%
+input:checked~ .main
+  width calc(100% - 518px)
+
+// sidebar 區 ===============================>
+.sidebar
+  width 602px
+  height 100vh
+  display flex
+  justify-content flex-end
+
+  position fixed
+  top 0
+  right 0
+  z-index 999
+
+  label.toggle
+    width 90px
+    height 50px
+    background #FCFCFC
+    border-radius 25px 5px 5px 25px
+    margin-bottom 30px
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    bottom 0
+    right calc(600px - 50px)
+
+    z-index 1000
+    cursor pointer
+    img
+      width 25px
+      height 25px
+      margin-right 15px
+    i
+      font-size 1.2rem
+  label:hover
+    cursor pointer
+
+.sidebar-content
+  width 100%
+  height 100vh
+  background #333333
+  display flex
+  margin-right -518px
+
+  position relative
+  right 0
+  top 0
+  transition 1s
+  
+  .nav-bar
+    width 84px
+    height 100%
+    border-right 2px solid #414141
+
+    display flex
+    flex-direction column
+    z-index 999
+
+    .nav-item-group
+      text-align center
+      margin 0
+      display flex
+      flex-direction column
+      li
+        width 100%
+        height 82px
+        line-height  82px
+        list-style none
+        a
+          width 100%
+          height 100%
+          color #FCFCFC
+          text-decoration  none
+          display flex
+          justify-content center
+          align-items center
+        a:hover
+          background #6e6e6e4d
+          transition 0.3s
+    .active
+      color #EA5548 !important
+
+    //ADD NEW TASK-------------------------------> 
+  .create
+    width calc(100% - 82px)
+    height 100%
+    .nav-content
+      width 518px
+      height 100%
+
+      padding 30px 34px
+
+      .content-title
+        width 100%
+        height 51px
+
+        font-size 1.25rem
+        font-weight 700
+        letter-spacing 2px
+        color #FCFCFC
+
+      .content
+        width 100%
+        .form
+          .form-item
+            margin 30px 0
+            .form-item-task-title
+              font-weight 700
+              color #ACACAC
+              letter-spacing 0.7px
+              margin 10px 0
+            .form-item-wrap
+              display flex
+              align-items stretch
+              justify-content space-between
+              .form-item-label:only-child
+                width 100%
+              .form-item-input[type=text]
+                width 100%
+                border-radius 5px
+                background #FCFCFC
+
+                color #333
+                padding 16px
+
+              .form-item-input[type=radio]
+                display none
+
+              .form-item-input[type=radio]+img
+                max-width 25px
+                transition 0.3s
+                cursor pointer
+                filter grayscale(1)
+
+              .form-item-input[type=radio]+img:hover
+                filter grayscale(0)
+                transform scale(1.1)
+              
+              .form-item-input[type=radio]+img:active
+                filter grayscale(0)
+                transform scale(1.1)
+
+              .form-item-input[type=button]
+                font-size 14px
+                font-weight 700
+                color #FCFCFC
+                letter-spacing 1.4px
+                
+                background #EA5548
+                border-radius 30px
+                padding 18px 0
+
+                flex-shrink 1
+                flex-grow 1
+                flex-basis 66.66%
+
+              .form-item-input[type=button]:hover
+                transition 0.5s
+                background #b44136
+
+    // TASK LISTS--------------------------->
+    // boostrap 設定
+    .card
+        background #414141
+        border none
+
+    .card-body 
+      color #FCFCFC
+      padding 0
+
+    .card-header
+      background #333
+      padding  0 .5rem .75rem
+    
+    .card-title
+      font-size 14px
+      letter-spacing .7px
+      color #acacac
+      margin 10px 0
+
+    .nav-link
+      font-size 12px
+      font-weight 900
+      letter-spacing 0.6px
+      color #FCFCFC
+      text-align center
+
+      width 80px
+      height 25px
+      background-color #606060
+      line-height 25px
+      border none
+      padding 0 5px
+      margin 0 2px -1px
+
+    .nav-item a
+      color #FCFCFC
+
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active
+      font-size 12px
+      font-weight 900
+      letter-spacing 0.6px
+      color #FCFCFC
+      text-align center
+
+      width 80px
+      height 25px
+      background-color #ea5548
+      border none
+      border-radius 5px 5px 0 0
+
+    .btn-secondary 
+      background-color transparent
+      border none
+
+    // 自訂名稱
+    .list-item 
+      height 50px
+      padding 9px 0
+      background-color #414141
+      border-bottom 1.5px solid #333
+
+      .toggle-title-orange 
+        display flex
+        justify-content center
+        align-items center
+        min-width 40px
+        height 50px
+        padding 10px
+
+        position relative
+
+        .tab-header__label
+          cursor pointer
+          margin 0
+
+        .tab-header__input[type=radio]
+          display none
+
+        .tab-header__input+img
+          width 13px
+          transition .3s
+
+        .tab-header__input:checked+img
+          filter grayscale(0)
+          opacity 1
+          pointer-events auto
+
+    .toggle-title
+      padding 5px 0
+
+      .toggle-title-name
+        letter-spacing 1.4px
+        margin-bottom 4px
+
+      .toggle-title-time-circle
+        width 8px
+        height 8px
+        border-radius 50%
+        
+        transition .3s
+        background-color #ea5548
+        border #ea5548
+        margin-right 5px
+
+    .hideContent
+      background #414141
+      padding 10px 40px 16px
+      border-bottom 1.5px solid #333
+      .form-item-wrap-small
+        display flex
+        align-items stretch
+        justify-content space-between
+        .form-item-label:only-child
+          width 100%
+        .form-item-input[type=radio]
+          display none
+        .form-item-input[type=text]
+          width 100%
+          border-radius 5px
+          padding 12px      
+        .form-item-input[type=radio]+img
+          max-width 20px
+          filter grayscale(1)
+        .form-item-input[type=radio]+img:hover
+          filter grayscale(0)
+          transform scale(1.1)
+        .form-item-input[type=button]
+          font-weight 700
+          color #FCFCFC
+          letter-spacing 1.4px
+          font-size 0.875rem
+          
+          padding 12px 0
+          background #606060
+          border-radius 30px
+
+          flex-shrink 1
+          flex-grow 1
+          flex-basis 66.66%
+
+// ANALYTIC--------------------------->
+      .anaContent
+        display flex
+        flex-direction column
+        .anaContent-box
+          margin 30px 0
+          h2
+            font-size 16px
+            font-weight 700
+            letter-spacing 0.7px
+            color #ACACAC
+            margin 10px 0
+            span
+              font-size 12px
+              color #EAEAEA
+              letter-spacing 0.5px
+          .week
+            width 100%
+            border-radius 2px
+            background #404040
+            display flex
+            justify-content center
+            align-items center
+            text-align center
+            .week-box
+              width calc(100% / 2)
+              .week-data
+                margin 10px 0
+                display flex
+                flex-direction column
+                justify-content center
+                align-items center
+                .week-num
+                  font-size 50px
+                  font-weight 700
+                  letter-spacing 2.5px
+                  color #EA5548
+                  opacity 1
+                .week-subtitle
+                  font-size 12px
+                  color #EAEAEA
+                  letter-spacing 0.5px
+                  margin-top -5px
+              .right-line
+                border-right 0.625px solid #6e6e6e
+          
+          .chart
+            width 100%
+            height 105px
+            border-radius 2px
+            background #404040
+            margin-bottom 35px
+          .anabtns
+            display flex
+            justify-content space-between
+            button
+              width 100px
+              height 45px
+              border-radius 30px
+              background transparent
+              font-size 14px
+              font-weight bolder
+              letter-spacing 1.4px
+            .prev
+              color #EA5548
+              border 2px solid #EA5548
+            .prev:hover
+              color #b24037
+              border-color #b24037
+            .next
+              color #606060
+              border 2px solid #606060
+
+            
+
+
+// 倒數計時區====================================>
+    .main
+      min-width 324px
+      width var(--leftMaxWidth)
+      
+      height 100vh
+
+      position absolute
+      top 0
+      left 0
+      transition 1s
+
+      .main-content-row
+        width 100%
+        height 100vh
+        text-align center
+
+        display flex
+        flex-direction column
+        justify-content space-around
+
+        .main-content-col-header
+          margin 0 auto
+          padding 0.5rem 0 0.25rem
+          display flex
+          align-items flex-end
+
+          .header
+            width 100%
+
+            .header-task-name
+              font-size 1.5rem
+              font-weight bolder
+              letter-spacing 1.2px
+              opacity 1
+              color #333333
+            
+            .header-tomato-number
+              display flex
+              justify-content center
+              padding-top 0.75rem
+
+              .tomato
+                width 12px
+                height 12px
+                border-radius 50%
+                border 2px solid #EA5548
+                margin 0 2px
+
+                display inline-block
+
+        .main-content-col-body
+          margin 0 auto
+          padding 0 0.75rem
+          display flex
+
+          .body
+            width 100%
+
+            .body-row
+              display flex
+              flex-direction column
+
+              .body-col
+                .body-timer
+                  width 100%
+
+                  display flex
+                  justify-content center
+                  align-items center
+
+                  .body-clock
+                    width 300px
+                    height 300px
+                    border-radius 50%
+                    background #ACACAC
+
+                    display flex
+                    justify-content center
+                    align-items center
+                  .body-clock::before
+                    content ''
+                    width 200px
+                    height 200px
+                    border-radius 50%
+                    background #FCFCFC
+
+                    position absolute
+
+                  .timer
+                    color #333333
+                    font-size 2.5rem
+                    font-weight bolder
+                    letter-spacing 4px
+                    opacity 1
+
+                    z-index 1
+
+                .body-btns
+                  width 300px
+                  margin auto
+
+                  .body-btns-row
+                    display flex
+                    justify-content space-around                    
+
+                    .body-btns-col
+
+                      .btn
+                        width 50px
+                        height 50px
+                        border-radius 50%
+                        background #FCFCFC
+                        color #ACACAC
+
+                        display inline-flex
+                        justify-content center
+                        align-items center
+                        cursor pointer
+                      .btn:hover
+                        color #EA5548
+
+                .body-complete
+                  .body-complete-label
+
+                    .body-complete-checkbox
+                      display none
+
+                    .complete-item-check
+                      width 16px
+                      height 16px
+                      border-radius 50%
+                      border 2px solid #EA5548
+
+                      display inline-block
+                      position relative
+                      top 2px
+
+                    .complete-item-text
+                      color #333333
+                      font-size 0.9rem
+                      font-weight bold
+                      letter-spacing 1.4px
+                      opacity 1
+        
+        .main-content-col-footer
+          margin 0 auto
+          padding 0 0 0.5rem
+          display flex
+          align-items flex-end
+
+          .footer
+            width 100%
+
+            .footer-text
+              color #333333
+              font-size 0.3rem
+              font-weight lighter
+              letter-spacing 1.5px
+              opacity 1
