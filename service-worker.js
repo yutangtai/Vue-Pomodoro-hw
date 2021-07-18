@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.c0a266d678054b1597fdb7f97f5d06fa.js"
+  "precache-manifest.ede86795f9d2fc8a6e62e806fd072960.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tomatoclock"});
