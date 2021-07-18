@@ -4,8 +4,8 @@
     <!-- 選單按鈕 -->
     <label class="toggle" for="toggle_sidebar" @click="close = !close">
       <img src="../../public/img/icons/apple-touch-icon-76x76.png">
-      <i v-if="close === false" class="pi pi-arrow-left"></i>
-      <i v-else class="pi pi-arrow-right"></i>
+      <i v-if="close === false" class="pi pi-arrow-right"></i>
+      <i v-else class="pi pi-arrow-left"></i>
     </label>
     <!-- 選單 -->
     <div class="nav-bar">
